@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>123 KEBAB</title>
-  <meta name="description" content="123 KEBAB — Produits & tarifs. Noir + néon." />
+  <title>123 KEBAB • Le Port</title>
+  <meta name="description" content="123 KEBAB — Le Port (97420). Menu, tarifs, horaires. Commande au 06 93 87 74 06." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -14,180 +14,212 @@
       <a class="logo" href="#top">123 <span>KEBAB</span></a>
 
       <div class="links">
-        <a href="#apropos">À propos</a>
-        <a href="#produits">Produits</a>
+        <a href="#menu">Menu</a>
         <a href="#tarifs">Tarifs</a>
+        <a href="#infos">Infos</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
 
     <section class="hero">
-      <div class="badge">Noir • Bleu • Rose néon</div>
+      <div class="badge">Le Port • 97420 • Noir & Néon</div>
       <h1>123 KEBAB</h1>
       <p>
-        Kebab, tacos, assiettes… une vibe néon, un goût qui claque.
-        Découvre nos produits et nos tarifs.
+        Sandwichs • Burgers • Assiettes • French Tacos • Snacks & Desserts
       </p>
 
       <div class="cta">
-        <a class="btn" href="#produits">Voir les produits</a>
-        <a class="btn btn-outline" href="#tarifs">Voir les tarifs</a>
+        <a class="btn" href="tel:+262693877406">📞 Appeler : 06 93 87 74 06</a>
+        <a class="btn btn-outline" target="_blank" rel="noreferrer"
+           href="https://www.google.com/maps/search/?api=1&query=105%20Avenue%20Jacques%20Pr%C3%A9vert%2C%2097420%20Le%20Port">
+          📍 Itinéraire
+        </a>
       </div>
 
-      <div class="social">
-        <a class="chip" href="https://facebook.com/123kebab" target="_blank" rel="noreferrer">Facebook: 123kebab</a>
-        <a class="chip" href="https://instagram.com/123kebab974" target="_blank" rel="noreferrer">Instagram: 123kebab974</a>
+      <div class="meta">
+        <div class="chip">📍 105 Avenue Jacques Prévert, 97420 Le Port</div>
+        <a class="chip" href="https://facebook.com/123kebab" target="_blank" rel="noreferrer">Facebook : 123kebab</a>
+        <a class="chip" href="https://instagram.com/123kebab974" target="_blank" rel="noreferrer">Instagram : 123kebab974</a>
+        <div class="chip">🌐 www.123kebab.re</div>
       </div>
     </section>
   </header>
 
   <main class="main">
-    <section class="section" id="apropos">
-      <h2>À propos</h2>
-      <div class="panel">
-        <p>
-          Bienvenue chez <strong>123 KEBAB</strong> ! Ici on prépare des recettes généreuses,
-          avec des ingrédients de qualité et une sauce maison qui fait la différence.
-        </p>
-        <p class="muted">
-          (Dis-moi ta ville/quartier + horaires et je les ajoute en haut du site.)
-        </p>
-      </div>
-    </section>
+    <!-- MENU -->
+    <section class="section" id="menu">
+      <h2>Menu</h2>
 
-    <section class="section" id="produits">
-      <h2>Produits</h2>
       <div class="grid">
         <article class="card">
-          <h3>Kebab</h3>
-          <p>Pain, viande, crudités, sauces au choix.</p>
-          <ul>
-            <li>Classique</li>
-            <li>Maxi</li>
-            <li>Avec fromage</li>
+          <h3>Sandwichs</h3>
+          <ul class="price-list">
+            <li><span>Kebab Poulet</span><span>7,90€</span><span class="muted">Menu 10,90€</span></li>
+            <li><span>Poulet Boursin</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
+            <li><span>Poulet Tenders</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
+            <li><span>Steak Boeuf</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
+            <li><span>Kebab Agneau</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
+            <li><span>Cordon Bleu</span><span>7,90€</span><span class="muted">Menu 10,90€</span></li>
+          </ul>
+          <p class="note muted">Menu = sandwich + frites + boisson</p>
+        </article>
+
+        <article class="card">
+          <h3>Burgers</h3>
+          <ul class="price-list">
+            <li><span>Chicken Poulet</span><span>5,50€</span><span class="muted">Menu 8,50€</span></li>
+            <li><span>Double Smash</span><span>7,90€</span><span class="muted">Menu 10,90€</span></li>
+            <li><span>Fish Burger</span><span>6,90€</span><span class="muted">Menu 9,90€</span></li>
+            <li><span>Tenders Crispy</span><span>7,90€</span><span class="muted">Menu 10,90€</span></li>
+            <li><span>Chicken Suprême</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
+            <li><span>Raclette Deluxe</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
+          </ul>
+          <p class="note muted">Menu = burger + frites + boisson</p>
+        </article>
+
+        <article class="card">
+          <h3>Assiettes</h3>
+          <ul class="price-list">
+            <li><span>Kebab Poulet</span><span>11,00€</span><span class="muted">Assiette</span></li>
+            <li><span>Kebab Agneau</span><span>13,00€</span><span class="muted">Assiette</span></li>
+            <li><span>Poulet Tenders</span><span>13,00€</span><span class="muted">Assiette</span></li>
+            <li><span>Saumon fumé</span><span>13,00€</span><span class="muted">Assiette</span></li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Tacos</h3>
-          <p>Une ou plusieurs viandes, frites, sauce fromagère.</p>
-          <ul>
-            <li>1 viande</li>
-            <li>2 viandes</li>
-            <li>3 viandes</li>
+          <h3>French Tacos</h3>
+          <ul class="price-list">
+            <li><span>Kebab Poulet</span><span>7,20€</span><span class="muted">Menu 10,20€</span></li>
+            <li><span>Kebab Agneau</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
+            <li><span>Tenders Crispy</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
+            <li><span>Nuggets</span><span>7,20€</span><span class="muted">Menu 10,20€</span></li>
+            <li><span>Cordon Bleu</span><span>7,20€</span><span class="muted">Menu 10,20€</span></li>
+            <li><span>Saumon fumé</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
           </ul>
-        </article>
-
-        <article class="card">
-          <h3>Assiette</h3>
-          <p>Viande + frites/riz + salade + sauces.</p>
-          <ul>
-            <li>Kebab</li>
-            <li>Mix</li>
-            <li>Chicken</li>
-          </ul>
+          <p class="note muted">Menu = tacos + frites + boisson</p>
         </article>
 
         <article class="card">
           <h3>Snacks</h3>
-          <p>Petits extras pour compléter.</p>
-          <ul>
-            <li>Frites</li>
-            <li>Nuggets</li>
-            <li>Onion rings</li>
+          <ul class="price-list">
+            <li><span>Tenders x2</span><span>4,50€</span><span class="muted">—</span></li>
+            <li><span>Tenders x4</span><span>8,00€</span><span class="muted">—</span></li>
+            <li><span>Nuggets x4</span><span>3,80€</span><span class="muted">—</span></li>
+            <li><span>Nuggets x8</span><span>6,90€</span><span class="muted">—</span></li>
+            <li><span>Wings x2</span><span>3,00€</span><span class="muted">—</span></li>
+            <li><span>Wings x4</span><span>5,00€</span><span class="muted">—</span></li>
+            <li><span>Onion rings x5</span><span>2,90€</span><span class="muted">—</span></li>
+            <li><span>Onion rings x10</span><span>5,20€</span><span class="muted">—</span></li>
+            <li><span>Calamars x5</span><span>3,40€</span><span class="muted">—</span></li>
+            <li><span>Calamars x10</span><span>5,90€</span><span class="muted">—</span></li>
+            <li><span>Mozza stick x5</span><span>4,20€</span><span class="muted">—</span></li>
+            <li><span>Mozza stick x10</span><span>7,90€</span><span class="muted">—</span></li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Boissons</h3>
-          <p>Fraîcheur & classiques.</p>
-          <ul>
-            <li>Sodas</li>
-            <li>Eau</li>
-            <li>Jus</li>
+          <h3>Frites & extras</h3>
+          <ul class="price-list">
+            <li><span>Petite frite</span><span>2,00€</span><span class="muted">—</span></li>
+            <li><span>Moyenne frite</span><span>2,50€</span><span class="muted">—</span></li>
+            <li><span>Frite fromage</span><span>3,30€</span><span class="muted">—</span></li>
+            <li><span>Cheesy bacon fries</span><span>3,90€</span><span class="muted">—</span></li>
+          </ul>
+
+          <h4 class="sub">Fromages (supplément +1,20€)</h4>
+          <p class="muted small">Raclette • Cheddar • Chèvre • Mozzarella • Boursin • Emmental • Bacon</p>
+
+          <h4 class="sub">Sauces (2 au choix)</h4>
+          <p class="muted small">Ketchup • Mayo • Piment • Samouraï • Curry • Biggy • Algérienne • Blanche (maison) • Harissa • Barbecue • Brazil</p>
+        </article>
+
+        <article class="card">
+          <h3>Desserts</h3>
+          <ul class="price-list">
+            <li><span>Tiramisu</span><span>4,90€</span><span class="muted">Nutella biscuits / Caramel spéculoos</span></li>
+            <li><span>Gaufre Nutella</span><span>3,00€</span><span class="muted">—</span></li>
+            <li><span>Gaufre Caramel</span><span>3,00€</span><span class="muted">—</span></li>
+            <li><span>Gaufre Sucre</span><span>2,50€</span><span class="muted">—</span></li>
+            <li><span>Churros Nutella</span><span>3,00€</span><span class="muted">—</span></li>
+            <li><span>Churros Caramel</span><span>3,00€</span><span class="muted">—</span></li>
+            <li><span>Churros Sucre</span><span>2,50€</span><span class="muted">—</span></li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Formules</h3>
-          <p>Le meilleur combo.</p>
-          <ul>
-            <li>Sandwich + frites + boisson</li>
-            <li>Tacos + frites + boisson</li>
-            <li>Assiette + boisson</li>
-          </ul>
+          <h3>Menu enfant</h3>
+          <p class="price-big"><strong>5,50€</strong></p>
+          <p class="muted">
+            Mini tacos <em>ou</em> Nuggets x4 <em>ou</em> Chicken cheese<br/>
+            + Petite frite + Capri-Sun ou eau
+          </p>
         </article>
       </div>
-
-      <p class="muted note">
-        Astuce : je peux remplacer tout ça par ton vrai menu exact (noms + options + sauces).
-      </p>
     </section>
 
+    <!-- TARIFS / INFOS RAPIDES -->
     <section class="section" id="tarifs">
-      <h2>Tarifs</h2>
+      <h2>Tarifs rapides</h2>
       <div class="panel">
-        <div class="pricing">
-          <div class="price-card">
-            <h3>Sandwich Kebab</h3>
-            <p class="price">à partir de <strong>— €</strong></p>
-            <p class="muted">Classique / Maxi / Fromage</p>
+        <div class="quick">
+          <div class="q"><span>Sandwich</span><strong>à partir de 7,90€</strong></div>
+          <div class="q"><span>Burger</span><strong>à partir de 5,50€</strong></div>
+          <div class="q"><span>French tacos</span><strong>à partir de 7,20€</strong></div>
+          <div class="q"><span>Assiette</span><strong>à partir de 11,00€</strong></div>
+        </div>
+        <p class="muted small">Prix selon produits. Menu = frites + boisson (selon catégories).</p>
+      </div>
+    </section>
+
+    <!-- INFOS + HORAIRES -->
+    <section class="section" id="infos">
+      <h2>Infos & horaires</h2>
+      <div class="panel">
+        <div class="info-grid">
+          <div>
+            <h3 class="sub">Adresse</h3>
+            <p class="muted">105 Avenue Jacques Prévert, 97420 Le Port</p>
+            <div class="cta">
+              <a class="btn" href="tel:+262693877406">📞 Appeler</a>
+              <a class="btn btn-outline" target="_blank" rel="noreferrer"
+                 href="https://www.google.com/maps/search/?api=1&query=105%20Avenue%20Jacques%20Pr%C3%A9vert%2C%2097420%20Le%20Port">
+                📍 Itinéraire
+              </a>
+            </div>
           </div>
 
-          <div class="price-card">
-            <h3>Tacos</h3>
-            <p class="price">à partir de <strong>— €</strong></p>
-            <p class="muted">1 / 2 / 3 viandes</p>
-          </div>
-
-          <div class="price-card">
-            <h3>Formules</h3>
-            <p class="price">à partir de <strong>— €</strong></p>
-            <p class="muted">Menu + boisson</p>
+          <div>
+            <h3 class="sub">Horaires</h3>
+            <table class="hours">
+              <tr><td>Lundi</td><td>11h30–13h30</td><td>18h30–21h30</td></tr>
+              <tr><td>Mardi</td><td>11h30–13h30</td><td>18h30–21h30</td></tr>
+              <tr><td>Mercredi</td><td>11h30–13h30</td><td>18h30–21h30</td></tr>
+              <tr><td>Jeudi</td><td>11h30–13h30</td><td>18h30–21h30</td></tr>
+              <tr><td>Vendredi</td><td>11h30–13h30</td><td>18h30–21h30</td></tr>
+              <tr><td>Samedi</td><td class="muted">Fermé</td><td>18h30–21h30</td></tr>
+              <tr><td>Dimanche</td><td class="muted" colspan="2">Fermé</td></tr>
+            </table>
           </div>
         </div>
-
-        <p class="muted note">
-          Envoie-moi tes prix (même en vrac) et je te remplis tout proprement.
-        </p>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section class="section" id="contact">
       <h2>Contact</h2>
       <div class="panel">
-        <p>Tu peux nous écrire sur :</p>
-        <div class="social">
-          <a class="chip" href="https://facebook.com/123kebab" target="_blank" rel="noreferrer">Facebook: 123kebab</a>
-          <a class="chip" href="https://instagram.com/123kebab974" target="_blank" rel="noreferrer">Instagram: 123kebab974</a>
+        <p class="muted">Téléphone : <a class="link" href="tel:+262693877406">06 93 87 74 06</a></p>
+        <div class="meta">
+          <a class="chip" href="https://facebook.com/123kebab" target="_blank" rel="noreferrer">Facebook : 123kebab</a>
+          <a class="chip" href="https://instagram.com/123kebab974" target="_blank" rel="noreferrer">Instagram : 123kebab974</a>
         </div>
-
-        <form class="form" onsubmit="return fakeSubmit(event)">
-          <div class="row">
-            <label>
-              Nom
-              <input required name="name" placeholder="Ton nom" />
-            </label>
-            <label>
-              Téléphone
-              <input name="phone" placeholder="06..." />
-            </label>
-          </div>
-
-          <label>
-            Message
-            <textarea required name="message" rows="5" placeholder="Bonjour, je voudrais..."></textarea>
-          </label>
-
-          <button class="btn" type="submit">Envoyer</button>
-          <p class="hint" id="hint"></p>
-        </form>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> 123 KEBAB • Noir & Néon</p>
+    <p>© <span id="year"></span> 123 KEBAB • 105 Avenue Jacques Prévert, 97420 Le Port</p>
   </footer>
 
   <script src="script.js"></script>
