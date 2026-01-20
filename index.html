@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>123 KEBAB</title>
+  <meta name="description" content="123 KEBAB — Produits & tarifs. Noir + néon." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header" id="top">
+    <nav class="nav">
+      <a class="logo" href="#top">123 <span>KEBAB</span></a>
+
+      <div class="links">
+        <a href="#apropos">À propos</a>
+        <a href="#produits">Produits</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="badge">Noir • Bleu • Rose néon</div>
+      <h1>123 KEBAB</h1>
+      <p>
+        Kebab, tacos, assiettes… une vibe néon, un goût qui claque.
+        Découvre nos produits et nos tarifs.
+      </p>
+
+      <div class="cta">
+        <a class="btn" href="#produits">Voir les produits</a>
+        <a class="btn btn-outline" href="#tarifs">Voir les tarifs</a>
+      </div>
+
+      <div class="social">
+        <a class="chip" href="https://facebook.com/123kebab" target="_blank" rel="noreferrer">Facebook: 123kebab</a>
+        <a class="chip" href="https://instagram.com/123kebab974" target="_blank" rel="noreferrer">Instagram: 123kebab974</a>
+      </div>
+    </section>
+  </header>
+
+  <main class="main">
+    <section class="section" id="apropos">
+      <h2>À propos</h2>
+      <div class="panel">
+        <p>
+          Bienvenue chez <strong>123 KEBAB</strong> ! Ici on prépare des recettes généreuses,
+          avec des ingrédients de qualité et une sauce maison qui fait la différence.
+        </p>
+        <p class="muted">
+          (Dis-moi ta ville/quartier + horaires et je les ajoute en haut du site.)
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="produits">
+      <h2>Produits</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Kebab</h3>
+          <p>Pain, viande, crudités, sauces au choix.</p>
+          <ul>
+            <li>Classique</li>
+            <li>Maxi</li>
+            <li>Avec fromage</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Tacos</h3>
+          <p>Une ou plusieurs viandes, frites, sauce fromagère.</p>
+          <ul>
+            <li>1 viande</li>
+            <li>2 viandes</li>
+            <li>3 viandes</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Assiette</h3>
+          <p>Viande + frites/riz + salade + sauces.</p>
+          <ul>
+            <li>Kebab</li>
+            <li>Mix</li>
+            <li>Chicken</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Snacks</h3>
+          <p>Petits extras pour compléter.</p>
+          <ul>
+            <li>Frites</li>
+            <li>Nuggets</li>
+            <li>Onion rings</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Boissons</h3>
+          <p>Fraîcheur & classiques.</p>
+          <ul>
+            <li>Sodas</li>
+            <li>Eau</li>
+            <li>Jus</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Formules</h3>
+          <p>Le meilleur combo.</p>
+          <ul>
+            <li>Sandwich + frites + boisson</li>
+            <li>Tacos + frites + boisson</li>
+            <li>Assiette + boisson</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="muted note">
+        Astuce : je peux remplacer tout ça par ton vrai menu exact (noms + options + sauces).
+      </p>
+    </section>
+
+    <section class="section" id="tarifs">
+      <h2>Tarifs</h2>
+      <div class="panel">
+        <div class="pricing">
+          <div class="price-card">
+            <h3>Sandwich Kebab</h3>
+            <p class="price">à partir de <strong>— €</strong></p>
+            <p class="muted">Classique / Maxi / Fromage</p>
+          </div>
+
+          <div class="price-card">
+            <h3>Tacos</h3>
+            <p class="price">à partir de <strong>— €</strong></p>
+            <p class="muted">1 / 2 / 3 viandes</p>
+          </div>
+
+          <div class="price-card">
+            <h3>Formules</h3>
+            <p class="price">à partir de <strong>— €</strong></p>
+            <p class="muted">Menu + boisson</p>
+          </div>
+        </div>
+
+        <p class="muted note">
+          Envoie-moi tes prix (même en vrac) et je te remplis tout proprement.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+      <div class="panel">
+        <p>Tu peux nous écrire sur :</p>
+        <div class="social">
+          <a class="chip" href="https://facebook.com/123kebab" target="_blank" rel="noreferrer">Facebook: 123kebab</a>
+          <a class="chip" href="https://instagram.com/123kebab974" target="_blank" rel="noreferrer">Instagram: 123kebab974</a>
+        </div>
+
+        <form class="form" onsubmit="return fakeSubmit(event)">
+          <div class="row">
+            <label>
+              Nom
+              <input required name="name" placeholder="Ton nom" />
+            </label>
+            <label>
+              Téléphone
+              <input name="phone" placeholder="06..." />
+            </label>
+          </div>
+
+          <label>
+            Message
+            <textarea required name="message" rows="5" placeholder="Bonjour, je voudrais..."></textarea>
+          </label>
+
+          <button class="btn" type="submit">Envoyer</button>
+          <p class="hint" id="hint"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> 123 KEBAB • Noir & Néon</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
