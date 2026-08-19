@@ -71,9 +71,36 @@ async function loadLatest(){
  try{const r=await fetch(BASE+"/json?poll=1&since=latest");const txt=await r.text();for(const line of txt.trim().split("\n").reverse()){try{const m=JSON.parse(line),s=m.message&&safeState(JSON.parse(m.message));if(s){state=s;break}}catch(e){}}}catch(e){try{const s=safeState(JSON.parse(localStorage.getItem("orderState")));if(s)state=s}catch(e2){}}
  render();
 }
-function subscribe(){
- const ev=new EventSource(BASE+"/sse?since=now");ev.onopen=()=>conn.textContent="En ligne";ev.onerror=()=>conn.textContent="Reconnexion…";
- ev.onmessage=e=>{try{const m=JSON.parse(e.data),s=m.message&&safeState(JSON.parse(m.message));if(!s||s.updated<state.updated)return;let nr=null;for(const n of s.ready)if(!state.ready.includes(n))nr=n;state=s;localStorage.setItem("orderState",JSON.stringify(state));render();if(!isAdmin&&nr&&nr!==lastReady){lastReady=nr;dingSpeak(nr)}}catch(err){}};
+let pollBusy=false;
+async function pollUpdates(){
+ if(pollBusy)return;
+ pollBusy=true;
+ try{
+  const r=await fetch(BASE+"/json?poll=1&since=10s&_="+Date.now(),{cache:"no-store"});
+  if(!r.ok)throw 0;
+  const txt=await r.text();
+  const lines=txt.trim().split("\n").filter(Boolean);
+  let newest=null;
+  for(const line of lines){
+   try{
+    const m=JSON.parse(line);
+    if(m.event==="message"&&m.message){
+     const candidate=safeState(JSON.parse(m.message));
+     if(candidate&&(!newest||candidate.updated>newest.updated))newest=candidate;
+    }
+   }catch(e){}
+  }
+  if(newest&&newest.updated>=state.updated){
+   let nr=null;
+   for(const n of newest.ready)if(!state.ready.includes(n))nr=n;
+   state=newest;
+   localStorage.setItem("orderState",JSON.stringify(state));
+   render();
+   if(!isAdmin&&nr&&nr!==lastReady){lastReady=nr;dingSpeak(nr)}
+  }
+  conn.textContent="Synchronisé";
+ }catch(e){conn.textContent="Connexion…"}
+ finally{pollBusy=false}
 }
 window.markReady=n=>{state.prep=state.prep.filter(x=>x!==n);state.ready=[n,...state.ready.filter(x=>x!==n)].slice(0,20);publish()};
 window.removeOrder=n=>{state.prep=state.prep.filter(x=>x!==n);state.ready=state.ready.filter(x=>x!==n);publish()};
@@ -82,7 +109,7 @@ if(isAdmin){
  document.getElementById("orderInput").addEventListener("keydown",e=>{if(e.key==="Enter")document.getElementById("addBtn").click()});
  document.getElementById("resetBtn").onclick=()=>{if(confirm("Vider toutes les commandes ?")){state={prep:[],ready:[],updated:Date.now()};publish()}};
 }
-(async()=>{await loadLatest();subscribe()})();
+(async()=>{await loadLatest();await pollUpdates();setInterval(pollUpdates,1500)})();
 </script>
 </body>
 </html>
