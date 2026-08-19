@@ -1,227 +1,88 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>123 KEBAB • Le Port</title>
-  <meta name="description" content="123 KEBAB — Le Port (97420). Menu, tarifs, horaires. Commande au 06 93 87 74 06." />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>1 2 3 KEBAB — Commandes</title>
+<style>
+:root{--bg:#101114;--panel:#1a1c20;--text:#fff;--muted:#aeb3bd;--yellow:#ffd400;--green:#2bd67b;--border:#2b2e34}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
+header{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:clamp(24px,4vw,48px);font-weight:900;letter-spacing:1px}.brand span{color:var(--yellow)}
+.status{font-size:14px;color:var(--muted)}.wrap{padding:22px;max-width:1400px;margin:auto}
+.display-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.col{background:var(--panel);border:1px solid var(--border);border-radius:20px;min-height:70vh;padding:22px}
+.col h2{margin:0 0 18px;font-size:clamp(24px,3vw,42px)}.col.ready h2{color:var(--green)}
+.numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.num{display:flex;align-items:center;justify-content:center;border-radius:18px;background:#23262c;min-height:120px;font-size:clamp(50px,7vw,100px);font-weight:900}
+.ready .num{background:#113421;border:2px solid var(--green)}.empty{color:var(--muted);font-size:22px;padding:20px 0}
+.admin{max-width:700px;margin:0 auto}.card{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:18px;margin-bottom:18px}
+.addrow{display:flex;gap:10px}input{flex:1;background:#0e0f12;color:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;font-size:28px;font-weight:700;min-width:0}
+button{border:0;border-radius:14px;padding:16px 18px;font-size:18px;font-weight:800;cursor:pointer}.add{background:var(--yellow);color:#111}
+.order{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--border)}.order:last-child{border-bottom:0}.order .id{font-size:30px;font-weight:900;flex:1}
+.readybtn{background:var(--green);color:#07150d}.delbtn{background:#392020;color:#fff}.reset{width:100%;background:#33201f;color:#fff}
+.small{font-size:13px;color:var(--muted);margin-top:10px}.hidden{display:none!important}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#000;padding:12px 16px;border-radius:12px;opacity:0;transition:.2s;pointer-events:none}.toast.show{opacity:1}
+@media(max-width:760px){.display-grid{grid-template-columns:1fr}.col{min-height:42vh}}
+</style>
 </head>
-
 <body>
-  <header class="header" id="top">
-    <nav class="nav">
-      <a class="logo" href="#top">123 <span>KEBAB</span></a>
-
-      <div class="links">
-        <a href="#menu">Menu</a>
-        <a href="#tarifs">Tarifs</a>
-        <a href="#infos">Infos</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-
-    <section class="hero">
-      <div class="badge">Le Port • 97420 • Noir & Néon</div>
-      <h1>123 KEBAB</h1>
-      <p>
-        Sandwichs • Burgers • Assiettes • French Tacos • Snacks & Desserts
-      </p>
-
-      <div class="cta">
-        <a class="btn" href="tel:+262693877406">📞 Appeler : 06 93 87 74 06</a>
-        <a class="btn btn-outline" target="_blank" rel="noreferrer"
-           href="https://www.google.com/maps/search/?api=1&query=105%20Avenue%20Jacques%20Pr%C3%A9vert%2C%2097420%20Le%20Port">
-          📍 Itinéraire
-        </a>
-      </div>
-
-      <div class="meta">
-        <div class="chip">📍 105 Avenue Jacques Prévert, 97420 Le Port</div>
-        <a class="chip" href="https://facebook.com/123kebab" target="_blank" rel="noreferrer">Facebook : 123kebab</a>
-        <a class="chip" href="https://instagram.com/123kebab974" target="_blank" rel="noreferrer">Instagram : 123kebab974</a>
-        <div class="chip">🌐 www.123kebab.re</div>
-      </div>
-    </section>
-  </header>
-
-  <main class="main">
-    <!-- MENU -->
-    <section class="section" id="menu">
-      <h2>Menu</h2>
-
-      <div class="grid">
-        <article class="card">
-          <h3>Sandwichs</h3>
-          <ul class="price-list">
-            <li><span>Kebab Poulet</span><span>7,90€</span><span class="muted">Menu 10,90€</span></li>
-            <li><span>Poulet Boursin</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
-            <li><span>Poulet Tenders</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
-            <li><span>Steak Boeuf</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
-            <li><span>Kebab Agneau</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
-            <li><span>Cordon Bleu</span><span>7,90€</span><span class="muted">Menu 10,90€</span></li>
-          </ul>
-          <p class="note muted">Menu = sandwich + frites + boisson</p>
-        </article>
-
-        <article class="card">
-          <h3>Burgers</h3>
-          <ul class="price-list">
-            <li><span>Chicken Poulet</span><span>5,50€</span><span class="muted">Menu 8,50€</span></li>
-            <li><span>Double Smash</span><span>7,90€</span><span class="muted">Menu 10,90€</span></li>
-            <li><span>Fish Burger</span><span>6,90€</span><span class="muted">Menu 9,90€</span></li>
-            <li><span>Tenders Crispy</span><span>7,90€</span><span class="muted">Menu 10,90€</span></li>
-            <li><span>Chicken Suprême</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
-            <li><span>Raclette Deluxe</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
-          </ul>
-          <p class="note muted">Menu = burger + frites + boisson</p>
-        </article>
-
-        <article class="card">
-          <h3>Assiettes</h3>
-          <ul class="price-list">
-            <li><span>Kebab Poulet</span><span>11,00€</span><span class="muted">Assiette</span></li>
-            <li><span>Kebab Agneau</span><span>13,00€</span><span class="muted">Assiette</span></li>
-            <li><span>Poulet Tenders</span><span>13,00€</span><span class="muted">Assiette</span></li>
-            <li><span>Saumon fumé</span><span>13,00€</span><span class="muted">Assiette</span></li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>French Tacos</h3>
-          <ul class="price-list">
-            <li><span>Kebab Poulet</span><span>7,20€</span><span class="muted">Menu 10,20€</span></li>
-            <li><span>Kebab Agneau</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
-            <li><span>Tenders Crispy</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
-            <li><span>Nuggets</span><span>7,20€</span><span class="muted">Menu 10,20€</span></li>
-            <li><span>Cordon Bleu</span><span>7,20€</span><span class="muted">Menu 10,20€</span></li>
-            <li><span>Saumon fumé</span><span>8,90€</span><span class="muted">Menu 11,90€</span></li>
-          </ul>
-          <p class="note muted">Menu = tacos + frites + boisson</p>
-        </article>
-
-        <article class="card">
-          <h3>Snacks</h3>
-          <ul class="price-list">
-            <li><span>Tenders x2</span><span>4,50€</span><span class="muted">—</span></li>
-            <li><span>Tenders x4</span><span>8,00€</span><span class="muted">—</span></li>
-            <li><span>Nuggets x4</span><span>3,80€</span><span class="muted">—</span></li>
-            <li><span>Nuggets x8</span><span>6,90€</span><span class="muted">—</span></li>
-            <li><span>Wings x2</span><span>3,00€</span><span class="muted">—</span></li>
-            <li><span>Wings x4</span><span>5,00€</span><span class="muted">—</span></li>
-            <li><span>Onion rings x5</span><span>2,90€</span><span class="muted">—</span></li>
-            <li><span>Onion rings x10</span><span>5,20€</span><span class="muted">—</span></li>
-            <li><span>Calamars x5</span><span>3,40€</span><span class="muted">—</span></li>
-            <li><span>Calamars x10</span><span>5,90€</span><span class="muted">—</span></li>
-            <li><span>Mozza stick x5</span><span>4,20€</span><span class="muted">—</span></li>
-            <li><span>Mozza stick x10</span><span>7,90€</span><span class="muted">—</span></li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Frites & extras</h3>
-          <ul class="price-list">
-            <li><span>Petite frite</span><span>2,00€</span><span class="muted">—</span></li>
-            <li><span>Moyenne frite</span><span>2,50€</span><span class="muted">—</span></li>
-            <li><span>Frite fromage</span><span>3,30€</span><span class="muted">—</span></li>
-            <li><span>Cheesy bacon fries</span><span>3,90€</span><span class="muted">—</span></li>
-          </ul>
-
-          <h4 class="sub">Fromages (supplément +1,20€)</h4>
-          <p class="muted small">Raclette • Cheddar • Chèvre • Mozzarella • Boursin • Emmental • Bacon</p>
-
-          <h4 class="sub">Sauces (2 au choix)</h4>
-          <p class="muted small">Ketchup • Mayo • Piment • Samouraï • Curry • Biggy • Algérienne • Blanche (maison) • Harissa • Barbecue • Brazil</p>
-        </article>
-
-        <article class="card">
-          <h3>Desserts</h3>
-          <ul class="price-list">
-            <li><span>Tiramisu</span><span>4,90€</span><span class="muted">Nutella biscuits / Caramel spéculoos</span></li>
-            <li><span>Gaufre Nutella</span><span>3,00€</span><span class="muted">—</span></li>
-            <li><span>Gaufre Caramel</span><span>3,00€</span><span class="muted">—</span></li>
-            <li><span>Gaufre Sucre</span><span>2,50€</span><span class="muted">—</span></li>
-            <li><span>Churros Nutella</span><span>3,00€</span><span class="muted">—</span></li>
-            <li><span>Churros Caramel</span><span>3,00€</span><span class="muted">—</span></li>
-            <li><span>Churros Sucre</span><span>2,50€</span><span class="muted">—</span></li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Menu enfant</h3>
-          <p class="price-big"><strong>5,50€</strong></p>
-          <p class="muted">
-            Mini tacos <em>ou</em> Nuggets x4 <em>ou</em> Chicken cheese<br/>
-            + Petite frite + Capri-Sun ou eau
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- TARIFS / INFOS RAPIDES -->
-    <section class="section" id="tarifs">
-      <h2>Tarifs rapides</h2>
-      <div class="panel">
-        <div class="quick">
-          <div class="q"><span>Sandwich</span><strong>à partir de 7,90€</strong></div>
-          <div class="q"><span>Burger</span><strong>à partir de 5,50€</strong></div>
-          <div class="q"><span>French tacos</span><strong>à partir de 7,20€</strong></div>
-          <div class="q"><span>Assiette</span><strong>à partir de 11,00€</strong></div>
-        </div>
-        <p class="muted small">Prix selon produits. Menu = frites + boisson (selon catégories).</p>
-      </div>
-    </section>
-
-    <!-- INFOS + HORAIRES -->
-    <section class="section" id="infos">
-      <h2>Infos & horaires</h2>
-      <div class="panel">
-        <div class="info-grid">
-          <div>
-            <h3 class="sub">Adresse</h3>
-            <p class="muted">105 Avenue Jacques Prévert, 97420 Le Port</p>
-            <div class="cta">
-              <a class="btn" href="tel:+262693877406">📞 Appeler</a>
-              <a class="btn btn-outline" target="_blank" rel="noreferrer"
-                 href="https://www.google.com/maps/search/?api=1&query=105%20Avenue%20Jacques%20Pr%C3%A9vert%2C%2097420%20Le%20Port">
-                📍 Itinéraire
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="sub">Horaires</h3>
-            <table class="hours">
-              <tr><td>Lundi</td><td>11h30–13h30</td><td>18h30–21h30</td></tr>
-              <tr><td>Mardi</td><td>11h30–13h30</td><td>18h30–21h30</td></tr>
-              <tr><td>Mercredi</td><td>11h30–13h30</td><td>18h30–21h30</td></tr>
-              <tr><td>Jeudi</td><td>11h30–13h30</td><td>18h30–21h30</td></tr>
-              <tr><td>Vendredi</td><td>11h30–13h30</td><td>18h30–21h30</td></tr>
-              <tr><td>Samedi</td><td class="muted">Fermé</td><td>18h30–21h30</td></tr>
-              <tr><td>Dimanche</td><td class="muted" colspan="2">Fermé</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <h2>Contact</h2>
-      <div class="panel">
-        <p class="muted">Téléphone : <a class="link" href="tel:+262693877406">06 93 87 74 06</a></p>
-        <div class="meta">
-          <a class="chip" href="https://facebook.com/123kebab" target="_blank" rel="noreferrer">Facebook : 123kebab</a>
-          <a class="chip" href="https://instagram.com/123kebab974" target="_blank" rel="noreferrer">Instagram : 123kebab974</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>© <span id="year"></span> 123 KEBAB • 105 Avenue Jacques Prévert, 97420 Le Port</p>
-  </footer>
-
-  <script src="script.js"></script>
+<header><div class="brand"><span>1 2 3</span> KEBAB</div><div class="status" id="connection">Connexion…</div></header>
+<main class="wrap">
+<section id="displayView" class="display-grid">
+<div class="col"><h2>EN PRÉPARATION</h2><div id="prepNums" class="numbers"></div></div>
+<div class="col ready"><h2>✓ COMMANDE PRÊTE</h2><div id="readyNums" class="numbers"></div></div>
+</section>
+<section id="adminView" class="admin hidden">
+<div class="card"><h2>Ajouter une commande</h2><div class="addrow"><input id="orderInput" inputmode="numeric" placeholder="Ex : 152"><button class="add" id="addBtn">AJOUTER</button></div><div class="small">Tape le numéro du ticket puis AJOUTER.</div></div>
+<div class="card"><h2>En préparation</h2><div id="adminPrep"></div></div>
+<div class="card"><h2>Prêtes</h2><div id="adminReady"></div></div>
+<button class="reset" id="resetBtn">VIDER L’ÉCRAN</button>
+</section>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const TOPIC="kebab-ready-fb3200639e8503a2ac60fd36";
+const BASE="https://ntfy.sh/"+TOPIC;
+const isAdmin=new URLSearchParams(location.search).get("admin")==="1";
+let state={prep:[],ready:[],updated:0},lastReady=null;
+const displayView=document.getElementById("displayView"),adminView=document.getElementById("adminView"),conn=document.getElementById("connection");
+if(isAdmin){displayView.classList.add("hidden");adminView.classList.remove("hidden")}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function safeState(s){if(!s||!Array.isArray(s.prep)||!Array.isArray(s.ready))return null;return{prep:s.prep.map(String).slice(0,50),ready:s.ready.map(String).slice(0,50),updated:Number(s.updated)||Date.now()}}
+function render(){
+ const prep=document.getElementById("prepNums"),ready=document.getElementById("readyNums");
+ prep.innerHTML=state.prep.length?state.prep.map(n=>`<div class="num">${esc(n)}</div>`).join(""):`<div class="empty">Aucune commande</div>`;
+ ready.innerHTML=state.ready.length?state.ready.map(n=>`<div class="num">${esc(n)}</div>`).join(""):`<div class="empty">Aucune commande prête</div>`;
+ if(isAdmin){
+  document.getElementById("adminPrep").innerHTML=state.prep.length?state.prep.map(n=>`<div class="order"><div class="id">#${esc(n)}</div><button class="readybtn" onclick="markReady('${n}')">PRÊT ✓</button><button class="delbtn" onclick="removeOrder('${n}')">✕</button></div>`).join(""):`<div class="empty">Aucune</div>`;
+  document.getElementById("adminReady").innerHTML=state.ready.length?state.ready.map(n=>`<div class="order"><div class="id">#${esc(n)}</div><button class="delbtn" onclick="removeOrder('${n}')">SUPPRIMER</button></div>`).join(""):`<div class="empty">Aucune</div>`;
+ }
+}
+function dingSpeak(n){
+ try{const ctx=new(window.AudioContext||window.webkitAudioContext)(),o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.value=880;g.gain.setValueAtTime(.0001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.25,ctx.currentTime+.02);g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.35);o.start();o.stop(ctx.currentTime+.36)}catch(e){}
+ try{if("speechSynthesis"in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance("Commande "+n+" prête");u.lang="fr-FR";u.rate=.9;speechSynthesis.speak(u)}}catch(e){}
+}
+function toast(t){const el=document.getElementById("toast");el.textContent=t;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),1600)}
+async function publish(){
+ state.updated=Date.now();localStorage.setItem("orderState",JSON.stringify(state));render();
+ try{const r=await fetch(BASE,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8","X-Title":"orderboard-state"},body:JSON.stringify(state)});if(!r.ok)throw 0;conn.textContent="Synchronisé"}catch(e){conn.textContent="Hors ligne";toast("Pas de connexion")}
+}
+async function loadLatest(){
+ try{const r=await fetch(BASE+"/json?poll=1&since=latest");const txt=await r.text();for(const line of txt.trim().split("\n").reverse()){try{const m=JSON.parse(line),s=m.message&&safeState(JSON.parse(m.message));if(s){state=s;break}}catch(e){}}}catch(e){try{const s=safeState(JSON.parse(localStorage.getItem("orderState")));if(s)state=s}catch(e2){}}
+ render();
+}
+function subscribe(){
+ const ev=new EventSource(BASE+"/sse?since=now");ev.onopen=()=>conn.textContent="En ligne";ev.onerror=()=>conn.textContent="Reconnexion…";
+ ev.onmessage=e=>{try{const m=JSON.parse(e.data),s=m.message&&safeState(JSON.parse(m.message));if(!s||s.updated<state.updated)return;let nr=null;for(const n of s.ready)if(!state.ready.includes(n))nr=n;state=s;localStorage.setItem("orderState",JSON.stringify(state));render();if(!isAdmin&&nr&&nr!==lastReady){lastReady=nr;dingSpeak(nr)}}catch(err){}};
+}
+window.markReady=n=>{state.prep=state.prep.filter(x=>x!==n);state.ready=[n,...state.ready.filter(x=>x!==n)].slice(0,20);publish()};
+window.removeOrder=n=>{state.prep=state.prep.filter(x=>x!==n);state.ready=state.ready.filter(x=>x!==n);publish()};
+if(isAdmin){
+ document.getElementById("addBtn").onclick=()=>{const inp=document.getElementById("orderInput"),n=inp.value.trim();if(!n)return;if(state.prep.includes(n)||state.ready.includes(n))return toast("Numéro déjà présent");state.prep=[...state.prep,n];inp.value="";publish()};
+ document.getElementById("orderInput").addEventListener("keydown",e=>{if(e.key==="Enter")document.getElementById("addBtn").click()});
+ document.getElementById("resetBtn").onclick=()=>{if(confirm("Vider toutes les commandes ?")){state={prep:[],ready:[],updated:Date.now()};publish()}};
+}
+(async()=>{await loadLatest();subscribe()})();
+</script>
 </body>
 </html>
