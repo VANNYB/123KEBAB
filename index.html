@@ -63,12 +63,52 @@ function dingSpeak(n){
  try{if("speechSynthesis"in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance("Commande "+n+" prête");u.lang="fr-FR";u.rate=.9;speechSynthesis.speak(u)}}catch(e){}
 }
 function toast(t){const el=document.getElementById("toast");el.textContent=t;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),1600)}
+
+function xhrRequest(method,url,body,timeout){
+ return new Promise((resolve,reject)=>{
+  try{
+   const x=new XMLHttpRequest();
+   x.open(method,url,true);
+   x.timeout=timeout||8000;
+   x.onreadystatechange=()=>{if(x.readyState===4){if(x.status>=200&&x.status<300)resolve(x.responseText);else reject(new Error("HTTP "+x.status));}};
+   x.onerror=()=>reject(new Error("network"));
+   x.ontimeout=()=>reject(new Error("timeout"));
+   if(method==="POST")x.setRequestHeader("Content-Type","text/plain;charset=utf-8");
+   x.send(body||null);
+  }catch(e){reject(e)}
+ });
+}
 async function publish(){
- state.updated=Date.now();localStorage.setItem("orderState",JSON.stringify(state));render();
- try{const r=await fetch(BASE,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8","X-Title":"orderboard-state"},body:JSON.stringify(state)});if(!r.ok)throw 0;conn.textContent="Synchronisé"}catch(e){conn.textContent="Hors ligne";toast("Pas de connexion")}
+ state.updated=Date.now();
+ localStorage.setItem("orderState",JSON.stringify(state));
+ render();
+ try{
+  await xhrRequest("POST",BASE,JSON.stringify(state),8000);
+  conn.textContent="Synchronisé";
+ }catch(e){
+  conn.textContent="Hors ligne";
+  toast("Pas de connexion");
+ }
 }
 async function loadLatest(){
- try{const r=await fetch(BASE+"/json?poll=1&since=latest");const txt=await r.text();for(const line of txt.trim().split("\n").reverse()){try{const m=JSON.parse(line),s=m.message&&safeState(JSON.parse(m.message));if(s){state=s;break}}catch(e){}}}catch(e){try{const s=safeState(JSON.parse(localStorage.getItem("orderState")));if(s)state=s}catch(e2){}}
+ try{
+  const txt=await xhrRequest("GET",BASE+"/json?poll=1&since=latest&_="+Date.now(),null,8000);
+  const lines=txt.trim().split("\n").filter(Boolean);
+  for(let i=lines.length-1;i>=0;i--){
+   try{
+    const m=JSON.parse(lines[i]);
+    if(m.event==="message"&&m.message){
+     const s=safeState(JSON.parse(m.message));
+     if(s){state=s;localStorage.setItem("orderState",JSON.stringify(state));break}
+    }
+   }catch(e){}
+  }
+ }catch(e){
+  try{
+   const s=safeState(JSON.parse(localStorage.getItem("orderState")));
+   if(s)state=s;
+  }catch(e2){}
+ }
  render();
 }
 let pollBusy=false;
@@ -76,9 +116,7 @@ async function pollUpdates(){
  if(pollBusy)return;
  pollBusy=true;
  try{
-  const r=await fetch(BASE+"/json?poll=1&since=10s&_="+Date.now(),{cache:"no-store"});
-  if(!r.ok)throw 0;
-  const txt=await r.text();
+  const txt=await xhrRequest("GET",BASE+"/json?poll=1&since=15s&_="+Date.now(),null,8000);
   const lines=txt.trim().split("\n").filter(Boolean);
   let newest=null;
   for(const line of lines){
@@ -99,8 +137,10 @@ async function pollUpdates(){
    if(!isAdmin&&nr&&nr!==lastReady){lastReady=nr;dingSpeak(nr)}
   }
   conn.textContent="Synchronisé";
- }catch(e){conn.textContent="Connexion…"}
- finally{pollBusy=false}
+ }catch(e){
+  conn.textContent="Connexion…";
+ }
+ pollBusy=false;
 }
 window.markReady=n=>{state.prep=state.prep.filter(x=>x!==n);state.ready=[n,...state.ready.filter(x=>x!==n)].slice(0,20);publish()};
 window.removeOrder=n=>{state.prep=state.prep.filter(x=>x!==n);state.ready=state.ready.filter(x=>x!==n);publish()};
@@ -109,7 +149,7 @@ if(isAdmin){
  document.getElementById("orderInput").addEventListener("keydown",e=>{if(e.key==="Enter")document.getElementById("addBtn").click()});
  document.getElementById("resetBtn").onclick=()=>{if(confirm("Vider toutes les commandes ?")){state={prep:[],ready:[],updated:Date.now()};publish()}};
 }
-(async()=>{await loadLatest();await pollUpdates();setInterval(pollUpdates,1500)})();
+(async()=>{await loadLatest();await pollUpdates();setInterval(pollUpdates,2500)})();
 </script>
 </body>
 </html>
