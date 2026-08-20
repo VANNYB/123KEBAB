@@ -12,8 +12,8 @@ header{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;alig
 .status{font-size:14px;color:var(--muted)}.wrap{padding:22px;max-width:1400px;margin:auto}
 .display-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.col{background:var(--panel);border:1px solid var(--border);border-radius:20px;min-height:70vh;padding:22px}
 .col h2{margin:0 0 18px;font-size:clamp(24px,3vw,42px)}.col.ready h2{color:var(--green)}
-.numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
-.num{display:flex;align-items:center;justify-content:center;border-radius:18px;background:#23262c;min-height:120px;font-size:clamp(180px,22vw,420px);line-height:.9;font-weight:900}
+.numbers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+.num{display:flex;align-items:center;justify-content:center;border-radius:18px;background:#23262c;min-width:0;min-height:180px;padding:12px;font-size:clamp(90px,10vw,180px);line-height:1;font-weight:900;overflow:hidden;white-space:nowrap}
 .ready .num{background:#113421;border:2px solid var(--green)}.empty{color:var(--muted);font-size:22px;padding:20px 0}
 .admin{max-width:700px;margin:0 auto}.card{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:18px;margin-bottom:18px}
 .addrow{display:flex;gap:10px}input{flex:1;background:#0e0f12;color:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;font-size:28px;font-weight:700;min-width:0}
@@ -22,7 +22,7 @@ button{border:0;border-radius:14px;padding:16px 18px;font-size:18px;font-weight:
 .readybtn{background:var(--green);color:#07150d}.delbtn{background:#392020;color:#fff}.reset{width:100%;background:#33201f;color:#fff}
 .small{font-size:13px;color:var(--muted);margin-top:10px}.hidden{display:none!important}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#000;padding:12px 16px;border-radius:12px;opacity:0;transition:.2s;pointer-events:none}.toast.show{opacity:1}
-@media(max-width:760px){.display-grid{grid-template-columns:1fr}.col{min-height:42vh}}
+@media(max-width:760px){.display-grid{grid-template-columns:1fr}.col{min-height:42vh}.numbers{grid-template-columns:repeat(2,minmax(0,1fr))}.num{font-size:clamp(72px,18vw,130px);min-height:140px}}
 </style>
 </head>
 <body>
